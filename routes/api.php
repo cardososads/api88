@@ -12,7 +12,7 @@ Route::prefix('v1')->group(function () {
     // Rotas públicas
     Route::get('/', function () {
         return response()->json([
-            'message' => 'Você não está logado'
+            'message' => 'Você não está logado.'
         ]);
     });
     Route::post('register', [AuthController::class, 'register']);

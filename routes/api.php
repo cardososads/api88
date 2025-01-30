@@ -7,14 +7,15 @@ use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
+Route::get('/', function () {
+    return response()->json([
+        'message' => 'Você não está logado.'
+    ]);
+});
+
 Route::prefix('v1')->group(function () {
 
     // Rotas públicas
-    Route::get('/', function () {
-        return response()->json([
-            'message' => 'Você não está logado.'
-        ]);
-    });
     Route::post('register', [AuthController::class, 'register']);
     Route::post('login', [AuthController::class, 'login']);
 

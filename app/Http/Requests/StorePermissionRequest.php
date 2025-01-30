@@ -23,7 +23,6 @@ class StorePermissionRequest extends FormRequest
     {
         return [
             'key' => 'required|string|unique:permissions,key',
-
         ];
     }
 }

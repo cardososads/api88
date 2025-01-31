@@ -40,6 +40,7 @@ class UpdateUserRequest extends FormRequest
                 'sometimes',
                 'string',
                 'max:14',
+                'cpf',
                 Rule::unique('users', 'cpf')->ignore($userId)
             ],
             'mentor_id' => 'nullable|exists:users,id',

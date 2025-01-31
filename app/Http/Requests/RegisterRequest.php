@@ -25,8 +25,17 @@ class RegisterRequest extends FormRequest
             'name'     => 'required|string|max:255',
             'email'    => 'required|email|unique:users,email',
             'password' => 'required|min:8',
-            'cpf'      => 'nullable|string',
+            'cpf'      => 'nullable|string|cpf|unique:users,cpf',
             'metadata' => 'array'
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'email.unique' => 'O e-mail fornecido já está em uso.',
+            'password.min' => 'O campo de senha deve ter pelo menos 8 caracteres.',
+            'cpf.unique' => 'O CPF fornecido já está em uso.',
         ];
     }
 

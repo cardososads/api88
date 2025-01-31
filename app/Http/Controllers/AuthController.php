@@ -34,9 +34,6 @@ class AuthController extends Controller
         // Gera token Sanctum
         $token = $user->createToken('API Token')->plainTextToken;
 
-        // Retorna user + token
-        // Se estiver usando UserResource (ver próximo passo),
-        // encapsulamos o user.
         return response()->json([
             'user'  => new UserResource($user),
             'token' => $token

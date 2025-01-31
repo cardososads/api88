@@ -26,9 +26,16 @@ class StoreUserRequest extends FormRequest
             'email' => 'required|email|unique:users,email',
             'password' => 'required|string|min:6',
             'group_id' => 'required|exists:groups,id',
-            'cpf' => 'sometimes|string|max:14',
+            'cpf' => 'required|string|max:14|cpf|unique:users,cpf',
             'mentor_id' => 'nullable|exists:users,id',
             'metadata' => 'nullable|array'
+        ];
+    }
+
+    public function messages(): array
+    {
+        return [
+            'email.unique' => 'Esse email ja está em utilização.'
         ];
     }
 }
